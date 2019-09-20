@@ -8,6 +8,8 @@ var heroX = (canvas.width-heroWidth)/2;
 var heroY = (canvas.height-heroHeight);
 var rightPressed = false;
 var leftPressed = false;
+var upPressed = false;
+var downPressed = false;
 document.addEventListener("keydown", keyPressedHandler, false);
 document.addEventListener("keyup", keyNotPressedHandler, false);
 function keyPressedHandler(e) {
@@ -17,6 +19,12 @@ function keyPressedHandler(e) {
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = true;
     }
+    else if(e.key == "Up" || e.key == "ArrowUp") {
+        upPressed = true;
+    }
+    else if(e.key == "Down" || e.key == "ArrowDown") {
+        downPressed = true;
+    }
 }
 
 function keyNotPressedHandler(e) {
@@ -25,6 +33,12 @@ function keyNotPressedHandler(e) {
     }
     else if(e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
+    }
+    else if(e.key == "Up" || e.key == "ArrowUp") {
+        upPressed = false;
+    }
+    else if(e.key == "Down" || e.key == "ArrowDown") {
+        downPressed = false;
     }
 }
 function drawBars() {
@@ -87,17 +101,35 @@ function draw() {
         da10 = -da10;
     }
     if(rightPressed) {
-        heroX += 7;
-        console.log("right pressed");
+        heroX += 3;
         if (heroX + heroWidth > canvas.width){
             heroX = canvas.width - heroWidth;
         }
     }
     else if(leftPressed) {
-        heroX -= 7;
+        heroX -= 3;
         if (heroX < 0){
             heroX = 0;
         }
+    }
+    else if(upPressed) {
+        heroY -= 3;
+        if (heroY < 0){
+            heroY = 0;
+        }
+    }
+    else if(downPressed) {
+        heroY += 3;    
+        if (heroY + heroHeight > canvas.Height){
+            heroY = canvas.Height - heroHeight;
+        }
+// for(let i=a10;i<=a10+60;i++){
+    // for(let j=500;j<=520;j++){
+        if(a10<heroX<a10+60 && 500<heroY<520){
+alert("gameover");
+        // }
+    // }
+}
     }
     a1 += da1;
     a2 += da2;
@@ -111,4 +143,4 @@ function draw() {
     a10 += da10;
 }
 
-setInterval(draw, 10);
+setInterval(draw, 100);
