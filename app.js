@@ -1,25 +1,52 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var a=80,b=40,c=30,d=18,e=80,f=210,g=140,h=250;
-var da = 8;
-var db = 2;
-var dc = 4;
-var dd = 8;
-var de = 4;
-var df = 2;
-var dg = 4;
-var dh = 2;
+var a1=80,a2=40,a3=30,a4=18,a5=80,a6=210,a7=140,a8=250,a9=350,a10=110;
+var da1 = 8,da2 = 6,da3 = 4,da4 = 8,da5 = 6,da6 = 5,da7 = 4,da8 = 2,da9 = 6,da10 = 5;
+var heroHeight = 16;
+var heroWidth = 16;
+var heroX = (canvas.width-heroWidth)/2;
+var heroY = (canvas.height-heroHeight);
+var rightPressed = false;
+var leftPressed = false;
+document.addEventListener("keydown", keyPressedHandler, false);
+document.addEventListener("keyup", keyNotPressedHandler, false);
+function keyPressedHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
+
+function keyNotPressedHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
 function drawBars() {
     ctx.beginPath();
-    ctx.rect(a,40,80,20);
-    ctx.rect(b,90,60,20);
-    ctx.rect(c,140,40,20);
-    ctx.rect(d,190,60,20);
-    ctx.rect(e,240,60,20);
-    ctx.rect(f,290,60,20);
-    ctx.rect(g,340,60,20);
-    ctx.rect(h,390,60,20);
+    ctx.rect(a1,50,80,20);
+    ctx.rect(a2,100,60,20);
+    ctx.rect(a3,150,60,20);
+    ctx.rect(a4,200,60,20);
+    ctx.rect(a5,250,60,20);
+    ctx.rect(a6,300,60,20);
+    ctx.rect(a7,350,60,20);
+    ctx.rect(a8,400,60,20);
+    ctx.rect(a9,450,60,20);
+    ctx.rect(a10,500,60,20);
     ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawHero() {
+    ctx.beginPath();
+    ctx.rect(heroX,heroY,heroWidth,heroHeight);
+    ctx.fillStyle = "#3F51B5";
     ctx.fill();
     ctx.closePath();
 }
@@ -27,37 +54,61 @@ function drawBars() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBars();
-    a += da;
-    b += db;
-    c += dc;
-    d += dd;
-    e += de;
-    f += df;
-    g += dg;
-    h += dh;
-    if(a + da+40 > canvas.width || a + da < 0) {
-        da = -da;
+    drawHero();
+    
+    if(a1 + da1+40 > canvas.width || a1 + da1 < 0) {
+        da1 = -da1;
     }
-    if(b + db+60 > canvas.width || b + db < 0) {
-        db = -db;
+    if(a2 + da2+60 > canvas.width || a2 + da2 < 0) {
+        da2 = -da2;
     }
-    if(c + dc+40 > canvas.width || c + dc < 0) {
-        dc = -dc;
+    if(a3 + da3+40 > canvas.width || a3 + da3 < 0) {
+        da3 = -da3;
     }
-    if(d + dd+60 > canvas.width || d + dd < 0) {
-        dd = -dd;
+    if(a4 + da4+60 > canvas.width || a4 + da4 < 0) {
+        da4 = -da4;
     }
-    if(e + de+40 > canvas.width || e + de < 0) {
-        de = -de;
+    if(a5 + da5+40 > canvas.width || a5 + da5 < 0) {
+        da5 = -da5;
     }
-    if(f + df+60 > canvas.width || f + df < 0) {
-        df = -df;
+    if(a6 + da6+60 > canvas.width || a6 + da6 < 0) {
+        da6 = -da6;
     }
-    if(g + dg+40 > canvas.width || g + dg < 0) {
-        dg = -dg;
+    if(a7 + da7+40 > canvas.width || a7 + da7 < 0) {
+        da7 = -da7;
     }
-    if(h + dh+60 > canvas.width || h + dh < 0) {
-        dh = -dh;
+    if(a8 + da8+60 > canvas.width || a8 + da8 < 0) {
+        da8 = -da8;
     }
+    if(a9 + da9+40 > canvas.width || a9 + da9 < 0) {
+        da9 = -da9;
+    }
+    if(a10 + da10+60 > canvas.width || a10 + da10 < 0) {
+        da10 = -da10;
+    }
+    if(rightPressed) {
+        heroX += 7;
+        console.log("right pressed");
+        if (heroX + heroWidth > canvas.width){
+            heroX = canvas.width - heroWidth;
+        }
+    }
+    else if(leftPressed) {
+        heroX -= 7;
+        if (heroX < 0){
+            heroX = 0;
+        }
+    }
+    a1 += da1;
+    a2 += da2;
+    a3 += da3;
+    a4 += da4;
+    a5 += da5;
+    a6 += da6;
+    a7 += da7;
+    a8 += da8;
+    a9 += da9;
+    a10 += da10;
 }
+
 setInterval(draw, 10);
