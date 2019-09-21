@@ -1,2 +1,62 @@
-* { padding: 0; margin: 0; }
-canvas { background: #eee; display: block; margin: 0 auto; }
+:root{
+    --baseColor: #4DB6AC;
+    --primaryColor:#FFFFFF ;
+    --primaryColor1:#1A237E;
+    --secondaryColor1:#C8DAD3;
+    --secondaryColor2:#93B5B3;
+    font-size: 1em;
+}
+.full-screen{
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    background-color: #113f67;
+    justify-content: center;
+}
+.startquiz{
+    height: 33.33%;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    /* display: flex;  */
+}
+.heading{
+    height: 15%;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+    display: flex; 
+    color: #fafafa;
+    
+}
+.description{
+    height: 33.33%;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    display: flex; 
+    color: #f3f9fb;
+    
+}
+.controls{
+    /* height: 33.33%; */
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    display: flex; 
+    color: #f3f9fb;
+    
+}
+.start-btn{
+    height: 60px;
+    width:200px;
+    background-color:  #fafafa;
+    border-radius: 30px;
+    color: #113f67;
+    font-weight: bold;
+    font-size: 2rem;
+    border: none;
+}

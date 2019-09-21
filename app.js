@@ -1,7 +1,7 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 var a1=80,a2=40,a3=30,a4=18,a5=80,a6=210,a7=140,a8=250,a9=350,a10=110;
-var da1 = 8,da2 = 6,da3 = 4,da4 = 8,da5 = 6,da6 = 5,da7 = 4,da8 = 2,da9 = 6,da10 = 5;
+var da1 = 8,da2 = 6,da3 = 4,da4 = 8,da5 = 6,da6 = 5,da7 = 4,da8 = 2,da9 = 6,da10 = 1;
 var heroHeight = 16;
 var heroWidth = 16;
 var heroX = (canvas.width-heroWidth)/2;
@@ -10,6 +10,23 @@ var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
 var downPressed = false;
+var count = 0;
+
+function myFunction() {
+    
+    setInterval(function () {
+        console.log(count)
+        document.getElementById('time').innerHTML = count;
+        
+        count++;
+    },1000);
+}
+
+if(localStorage.hasOwnProperty('hs')){
+    document.getElementById("highScore").innerHtml=parseInt(localStorage.getItem("hs"));
+}
+
+myFunction();
 document.addEventListener("keydown", keyPressedHandler, false);
 document.addEventListener("keyup", keyNotPressedHandler, false);
 function keyPressedHandler(e) {
@@ -101,36 +118,101 @@ function draw() {
         da10 = -da10;
     }
     if(rightPressed) {
-        heroX += 3;
+        heroX += 1;
         if (heroX + heroWidth > canvas.width){
             heroX = canvas.width - heroWidth;
         }
     }
     else if(leftPressed) {
-        heroX -= 3;
+        heroX -= 1;
         if (heroX < 0){
             heroX = 0;
         }
     }
     else if(upPressed) {
-        heroY -= 3;
+        heroY -= 1;
         if (heroY < 0){
             heroY = 0;
         }
     }
     else if(downPressed) {
-        heroY += 3;    
+        heroY += 1;    
         if (heroY + heroHeight > canvas.Height){
             heroY = canvas.Height - heroHeight;
         }
-// for(let i=a10;i<=a10+60;i++){
-    // for(let j=500;j<=520;j++){
-        if(a10<heroX<a10+60 && 500<heroY<520){
-alert("gameover");
-        // }
-    // }
-}
     }
+
+if((500 < (heroY+heroHeight) && 520 >= heroY)) {
+    if(a10 < (heroX+heroWidth) && (a10+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((450 < (heroY+heroHeight) && 470 >= heroY)) {
+    if(a9 < (heroX+heroWidth) && (a9+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((400 < (heroY+heroHeight) && 420 >= heroY)) {
+    if(a8 < (heroX+heroWidth) && (a8+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((350 < (heroY+heroHeight) && 370 >= heroY)) {
+    if(a7 < (heroX+heroWidth) && (a7+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((300 < (heroY+heroHeight) && 320 >= heroY)) {
+    if(a6 < (heroX+heroWidth) && (a6+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((250 < (heroY+heroHeight) && 270 >= heroY)) {
+    if(a5 < (heroX+heroWidth) && (a5+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((200 < (heroY+heroHeight) && 220 >= heroY)) {
+    if(a4 < (heroX+heroWidth) && (a4+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((150 < (heroY+heroHeight) && 170 >= heroY)) {
+    if(a3 < (heroX+heroWidth) && (a3+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((100 < (heroY+heroHeight) && 120 >= heroY)) {
+    if(a2 < (heroX+heroWidth) && (a2+60) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((50 < (heroY+heroHeight) && 70 >= heroY)) {
+    if(a1 < (heroX+heroWidth) && (a1+80) >= heroX) {
+      alert('You lost!!');
+      location.reload();
+    }
+ }
+ if((0 < (heroY+heroHeight) && 50 >= heroY)) {
+    if(0 < (heroX+heroWidth) && 480>= heroX) {
+      alert('You win!!');
+      document.getElementById('yourScore').innerHTML = count;
+      if(count<parseInt(localStorage.getItem("hs"))){
+          localStorage.setItem("hs",count);
+      }
+      location.reload();
+    }
+ }
+
     a1 += da1;
     a2 += da2;
     a3 += da3;
@@ -141,6 +223,7 @@ alert("gameover");
     a8 += da8;
     a9 += da9;
     a10 += da10;
+   
 }
 
-setInterval(draw, 100);
+setInterval(draw, 10);

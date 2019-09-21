@@ -1,0 +1,81 @@
+// for(let i=a9;i<=a9+60;i++){
+//         for(let j=450;j<=470;j++){
+//     alert("gameover");
+//     document.location.reload();
+//         clearInterval(interval);
+//             }
+//         }
+// for(let i=a8;i<=a8+60;i++){
+//         for(let j=400;j<=420;j++){
+//         alert("gameover");
+//         document.location.reload();
+//             clearInterval(interval);
+//                 }
+//             }
+// for(let i=a7;i<=a7+60;i++){
+//         for(let j=350;j<=370;j++){
+//         alert("gameover");
+//         document.location.reload();
+//             clearInterval(interval);
+//                 }
+//             }
+//  for(let i=a6;i<=a6+60;i++){
+//      for(let j=300;j<=320;j++){
+//     alert("gameover");
+//         document.location.reload();
+//         clearInterval(interval);
+//               }
+//         }
+// for(let i=a5;i<=a5+60;i++){
+//      for(let j=250;j<=270;j++){
+//     alert("gameover");
+//      document.location.reload();
+//         clearInterval(interval);
+//             }
+//         }
+// for(let i=a4;i<=a4+60;i++){
+//     for(let j=200;j<=220;j++){
+//     alert("gameover");
+//     document.location.reload();
+//         clearInterval(interval);
+//             }
+//         }
+// for(let i=a3;i<=a3+60;i++){
+//     for(let j=150;j<=170;j++){
+//     alert("gameover");
+//     document.location.reload();
+//         clearInterval(interval);
+//             }
+//         }
+// for(let i=a2;i<=a2+60;i++){
+//     for(let j=100;j<=120;j++){
+//     alert("gameover");
+//     document.location.reload();
+//         clearInterval(interval);
+//              }
+//         }
+// for(let i=a1;i<=a1+80;i++){
+//     for(let j=50;j<=70;j++){
+//      alert("gameover");
+//     document.location.reload();
+//          clearInterval(interval);
+//               }
+//          }
+
+
+
+
+
+
+    for(let i=a10;i<=a10+60;i++){
+    for(let j=500;j<=520;j++){
+//     //    else if(heroX>a10 && heroX<a10+60){
+//     //        if(heroY>500 && heroY<520){
+        if(heroX=i && heroY==j ){
+alert("gameover");  }
+// // document.location.reload();
+//     // clearInterval(interval);
+        }
+    }
+//            }
+// }
