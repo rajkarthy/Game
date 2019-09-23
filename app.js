@@ -206,7 +206,11 @@ if((500 < (heroY+heroHeight) && 520 >= heroY)) {
     if(0 < (heroX+heroWidth) && 480>= heroX) {
       alert('You win!!');
       document.getElementById('yourScore').innerHTML = count;
-      if(count<parseInt(localStorage.getItem("hs"))){
+      if(!localStorage.hasOwnProperty('hs')){
+          console.log("here")
+         localStorage.setItem('hs',count);
+      }
+      else if(count<parseInt(localStorage.getItem("hs"))){
           localStorage.setItem("hs",count);
       }
       location.reload();
